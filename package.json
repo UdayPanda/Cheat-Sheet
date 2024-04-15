@@ -2,9 +2,10 @@
   "name": "cheat-sheet",
   "version": "1.0.0",
   "description": "This is my personal cheatsheet project in nodejs",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",

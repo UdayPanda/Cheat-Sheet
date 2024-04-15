@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: gray;
+}
+
+.head{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Anuphan', sans-serif;
+    height: 40px;
+    width: 100%;
+    color: white;
+    background-color: rgb(36, 35, 35);
+}
+
+.form-control{
+    width: 750px;
+    /* height: 250px; */
+    border: 2px solid rgb(36, 35, 35);
+    margin: 20px auto;
+    border-radius: 8px;
+    background-color: rgb(36, 35, 35);
+    color: white;
+}
+
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+form label{
+    margin: 5px;
+    font-size: 23px;
+}
+
+form input{
+    width: 90%;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    height: 35px;
+    font-size: 16px;
+}
+
+form textarea{
+    height: 115px;
+    width: 674px;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+form select{
+    margin-top: 30px;
+    width: 90%;
+    height: 30px;
+    border-radius: 3px;
+    font-size: 18px;
+    outline: none;
+}
+
+#form-btn{
+    width: 80px;
+    height: 30px;
+    margin: 10px;
+    padding: 2px;
+    color: white;
+    background-color: rgb(41, 165, 236);
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.container{
+    width: 80%;
+    margin: 10px auto;
+    background-color: rgb(0 84 96 / 44%);
+    border: 4px solid rgb(37, 215, 247);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    font-size: 18px;
+}
+
+.content-box{
+    width: 750px;
+    margin: 15px auto;
+    background-color: rgb(36, 35, 35);
+    box-shadow: 2px 3px 5px 1px black;
+}
+
+.title{
+    margin: 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.content-box .content{
+    margin: 20px;
+}
+
+.remove-btn{
+    width: 80px;
+    height: 30px;
+    margin: 10px;
+    padding: 2px;
+    color: white;
+    background-color: rgb(41, 165, 236);
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}

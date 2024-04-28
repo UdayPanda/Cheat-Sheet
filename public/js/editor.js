@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (doc.exists) {
                     const title = doc.data().title;
                     const userConfirmation = window.prompt(`Are you sure to delete "${title}"? (y/n)`);
-            
+
                     if (userConfirmation === "y") {
                         db.collection("codes").doc(docId).delete().then(() => {
                             alert('Deleted Successfully!');
@@ -105,4 +105,82 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+});
+
+// Searching data
+
+const titles = [];
+db.collection("codes").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        var title = doc.data().title;
+        titles.push(title);
+    })
+})
+
+// console.log(titles)
+
+var searchQuery = document.getElementById('search-query');
+
+async function handleKeyPress() {
+    const query = searchQuery.value.trim();
+    // console.log(query);
+
+    let container = document.querySelector('.container');
+    container.innerHTML = '';
+
+    try {
+        const querySnapshot = await db.collection('codes')
+            .orderBy('title')
+            .startAt(query)
+            .endAt(query + '\uf8ff')
+            .get();
+
+        querySnapshot.forEach(function (doc) {
+            var data = doc.data();
+            renderCode(doc);
+        });
+    } catch (error) {
+        console.log("Error getting documents: ", error);
+    }
+}
+
+searchQuery.addEventListener('keypress', async (event) => {
+    
+    if (event.key === 'Enter') {
+        await handleKeyPress();
+    
+    }
+
+    var matched = [];
+    
+    titles.forEach((t) => {
+        if (t.toLowerCase().includes(searchQuery.value.trim().toLowerCase())) {
+            // console.log('yes contains');
+            matched.push(t);
+        }
+    })
+    // console.log(matched)
+
+    var suggestionBox = document.querySelector('.suggestions');
+    var suggestionUL = document.querySelector('.suggestionUL');
+
+    if(suggestionUL.innerHTML != ""){
+        suggestionUL.innerHTML = ""
+        suggestionBox.style.display = 'block';
+        matched.forEach((e)=>{
+            suggestionUL.innerHTML += `<li class="list">${e}</li>`;
+        })
+        const list = document.querySelectorAll('.list');
+        list.forEach((l)=>{
+            l.addEventListener('click', (event)=>{
+                searchQuery.value = event.target.innerHTML;
+                suggestionBox.style.display = 'none';
+                handleKeyPress();
+            })
+        })
+    }
+    else{
+        suggestionBox.style.display = 'none';
+    }
+
 });

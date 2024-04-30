@@ -122,6 +122,7 @@ db.collection("codes").get().then((querySnapshot) => {
 var searchQuery = document.getElementById('search-query');
 
 async function handleKeyPress() {
+    document.querySelector('.suggestions').style.display = 'none';
     const query = searchQuery.value.trim();
     // console.log(query);
 

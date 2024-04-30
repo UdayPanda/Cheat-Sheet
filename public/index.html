@@ -35,9 +35,10 @@
     </div>
 
     <div class="search">
-        <div class="search-bar">
-            <input type="text" id="search-query" name="search-query" placeholder="Search your cheats...">
-        </div>
+        <form class="search-bar">
+            <input type="text" id="search-query" name="search-query" placeholder="Search your cheats..." required>
+            <button type="submit" onclick="handleKeyPress()">Search</button>
+        </form>
 
         <div class="suggestions">
             <ul class="suggestionUL">

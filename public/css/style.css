@@ -17,16 +17,16 @@ body{
     height: 40px;
     width: 100%;
     color: white;
-    background-color: rgb(36, 35, 35);
+    background-color: #242323;
 }
 
 .form-control{
     width: 750px;
     /* height: 250px; */
-    border: 2px solid rgb(36, 35, 35);
+    border: 2px solid #242323;
     margin: 20px auto;
     border-radius: 8px;
-    background-color: rgb(36, 35, 35);
+    background-color: #242323;
     color: white;
 }
 
@@ -93,6 +93,7 @@ form select{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: row;
 }
 
 .search-bar input{
@@ -104,6 +105,20 @@ form select{
     outline: none;
     border: 2px solid #29a5ec;
     margin: 10px;
+}
+
+.search-bar button{
+    width: 85px;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid #29a5ec;
+    outline: none;
+    font-size: 18px;
+}
+
+.search-bar button:hover{
+    background-color: #242323;
+    color: #ffffff;
 }
 
 .suggestions{
